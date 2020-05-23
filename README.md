@@ -13,6 +13,17 @@ What if you want to know as a business, how your product is getting a response f
 
 The app was dockerized and deployed on AWS. A fully automatic CI/CD pipeline was created using Jenkins, which gets triggered every time a new commit is made to the repo and within seconds the changes get reflected to the live website.
 
+## CI/CD Pipeline
+
+The project is deployed on AWS using a fully automated `CI/CD` pipeline. The **Github** is used for **Continuous Integration** and combination of **Docker** and **Jenkins** are used for **Continuous Deployment**.
+
+### Pipeline Steps
+
+1. New changes are commited to **Github**
+2. Github triggers a `webhook` sending a post request to **Jenkins** about the changes
+3. Jenkins starts first pipeline which fetches all changes from Github and builds a `docker image`
+4. Once the first pipeline gets completed, it triggers second pipeline which uses the `docker image` built during first pipeline and runs a container along with removing the older one and now new changes are live
+
 ## Architecture
 
 !["Architecture"](Images/architecture.jpg)
